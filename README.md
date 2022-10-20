@@ -4,4 +4,4 @@ We will be creating a Discord bot that takes YouTube song titles and converts th
 
 The main language we will be initially implementing is Python. We will be researching different methods in which Discord extensions can be used to tie in with the YouTube video player as well as obtain URLs. The questions we had were how it would be involved with networking, what will be the starting process to build said bot, and how will it be able to connect and obtain data on major platforms such as YouTube.  
 
- 
+ ![screenshot](BotVisual.png)
