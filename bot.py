@@ -1,5 +1,6 @@
 import discord
 import responses
+import download
 
 
 # Send messages
@@ -17,7 +18,9 @@ async def send_message(message, user_message, is_private):
 
 
 def run_discord_bot():
-    TOKEN =     'MTAyMDAxOTg0MTAwMTg0ODk2Mg.G6qeCH.TG1Oz_Mg3VMc4V-3L6SqWLsqQH-2iu6_QLfMbw'
+    #zqLTrD6BI8FfEvKZ0WDPkP_5fEf5eh1G
+    #MTAyMDAxOTg0MTAwMTg0ODk2Mg.G6qeCH.TG1Oz_Mg3VMc4V-3L6SqWLsqQH-2iu6_QLfMbw
+    TOKEN =     'MTAyMDAxOTg0MTAwMTg0ODk2Mg.G1Tad1.iP3GrufelhNoCEt4mxt0ZaG64Bv6aa5jN-ESaA'
     client = discord.Client(intents=discord.Intents.all())
 
     @client.event
@@ -50,4 +53,5 @@ def run_discord_bot():
             await send_message(message, user_message, is_private=False)
 
     # Remember to run your bot with your personal TOKEN
+    client.login(TOKEN)
     client.run(TOKEN)
