@@ -4,9 +4,8 @@ We will be creating a Discord bot that takes YouTube song titles and converts th
 
 The main language we will be initially implementing is Python. We will be using PyTube to import Youtube links. Using the PyTube Library we can filter the results to show the highest resolution and the user can choose a video or audio file. The questions we had were how it would be involved with networking, what will be the starting process to build said bot, and how will it be able to connect and obtain data on major platforms such as YouTube.  
 
-how to set up a discord bot in your own server:
-command list:
-
+How to set up a discord bot in your own server:
+Command list:
 download ffmpeg 
 https://www.gyan.dev/ffmpeg/builds/
 ffmpeg-git-full.7z
