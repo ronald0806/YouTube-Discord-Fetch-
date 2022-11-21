@@ -1,3 +1,4 @@
+# requirements needed to run the bot 
  discord.py==2.0.1 
  bs4==0.0.1
  requests==2.28.1
