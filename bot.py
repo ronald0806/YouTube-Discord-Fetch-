@@ -5,6 +5,7 @@ import asyncio
 import youtube
 import os
 
+# help commands to ease use 
 help_message = """!play {url} 
 !download {url}
 !search {search_terms} (in progress)
@@ -14,6 +15,7 @@ help_message = """!play {url}
 !help
 """
 
+# function to run the bot - initializes, begins playing song in server. 
 def run_discord_bot():
     # Discord bot Initialization
     TOKEN ='MTAyMDAxOTg0MTAwMTg0ODk2Mg.GVIemQ.3JJGQ-TWaTJkdrbwQ3K8nqnsnBt8ZAuq8IWWTM'
@@ -38,7 +40,8 @@ def run_discord_bot():
         voice_client.play(player)
     @client.event
     async def on_ready():
-        print(f"Bot logged in as {client.user}")
+	# bot successfully connected to discord server 
+        print(f"Bot logged in as {client.user}") 
 
 
 
