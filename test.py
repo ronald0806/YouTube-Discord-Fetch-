@@ -5,36 +5,11 @@ import asyncio
 
 
 illegal_chars = [
-'!'
-,'@'
-,'#'
-,'$'
-,'%'
-,'^'
-,'&'
-,'*'
-,'('
-,')'
-,'"'
-,'+'
-,'<'
-,'>'
-,','
-,'.'
-,'?'
-,';'
-,':'
-,"'"
-,'{'
-,'['
-,']'
-,'}'
-,'-'
-,'='
+'!','@','#','$','%','^','&','*','(',')','"','+','<','>',',','.','?',';',':',"'",'{','[',']','}','-','='
 ]
 async def run(arg):
     if is_url(arg):
-        video_info = youtube_dl.YoutubeDL().extract_info(f"{arg}", download=False)['entries'][0]
+        video_info = youtube_dl.YoutubeDL().extract_info(arg, download=True)
     else:
         video_info = youtube_dl.YoutubeDL().extract_info(f"ytsearch:{arg}", download=False)['entries'][0]
     filename = video_info['title']
@@ -75,7 +50,7 @@ def replace_chars(arg):
 
 async def main():
     await run("we don't talk about bruno")
-if __name__=='__main__':
+if __name__ == '__main__':
 
     asyncio.run(main())
 
