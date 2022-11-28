@@ -1,12 +1,13 @@
-
 import youtube_dl
 from requests import get
 import asyncio
 
-
 illegal_chars = [
-'!','@','#','$','%','^','&','*','(',')','"','+','<','>',',','.','?',';',':',"'",'{','[',']','}','-','='
+    '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '"', '+', '<', '>', ',', '.', '?', ';', ':', "'", '{', '[', ']',
+    '}', '-', '='
 ]
+
+
 async def run(arg):
     if is_url(arg):
         video_info = youtube_dl.YoutubeDL().extract_info(arg, download=True)
@@ -17,12 +18,12 @@ async def run(arg):
     filename = f"{filename}.mp3"
 
     print(f'filename1: {filename}')
-    options={
+    options = {
 
-        'format':'worstaudio',
-        'keepvideo':False,
-        'outtmpl':filename,
-        'ext':'mp3'
+        'format': 'worstaudio',
+        'keepvideo': False,
+        'outtmpl': filename,
+        'ext': 'mp3'
     }
 
     with youtube_dl.YoutubeDL(options) as ydl:
@@ -32,6 +33,8 @@ async def run(arg):
     print("Download complete... {}".format(filename))
 
     return filename
+
+
 def is_url(url):
     if url.startswith('https') or url.startswith('www'):
         pass
@@ -43,14 +46,16 @@ def is_url(url):
     except:
         return False
 
+
 def replace_chars(arg):
     for i in illegal_chars:
         arg = arg.replace(i, '')
     return arg
 
+
 async def main():
     await run("we don't talk about bruno")
+
+
 if __name__ == '__main__':
-
     asyncio.run(main())
-

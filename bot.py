@@ -8,7 +8,6 @@ from requests import get
 import test
 import sys
 
-
 help_message = """!play url/search joins current voice channel and plays song
 !download url/search - generates a link to download mp3 from
 !pause
@@ -20,8 +19,6 @@ help_message = """!play url/search joins current voice channel and plays song
 download_message = """Preparing mp3 file. This may take up to a minute"""
 
 
-
-
 def run_discord_bot():
     # Discord bot Initialization
     TOKEN = sys.argv[1]
@@ -31,7 +28,7 @@ def run_discord_bot():
         'format': 'bestaudio/best',
     }
     ytdl = youtube_dl.YoutubeDL(yt_dl_opts)
-    ffmpeg_options = {'options': "-vn"} # exclude video
+    ffmpeg_options = {'options': "-vn"}  # exclude video
 
     async def search(arg):
         with youtube_dl.YoutubeDL(yt_dl_opts) as ydl:
@@ -54,7 +51,6 @@ def run_discord_bot():
         except:
             return False
 
-
     async def play_song(msg, url):
         voice_client = await msg.author.voice.channel.connect()
         voice_clients[voice_client.guild.id] = voice_client
@@ -68,6 +64,7 @@ def run_discord_bot():
 
         voice_client.play(player)
         return data
+
     @client.event
     async def on_ready():
         print(f"Bot logged in as {client.user}")
@@ -76,7 +73,7 @@ def run_discord_bot():
     async def on_message(msg):
         if msg.author == client.user:
             return
-        if msg.content.startswith("!play"):  # command to play music given a url
+        if msg.content.startswith("!play"):  # command to play music given an url
             try:
                 url = msg.content[6:]
                 data = await play_song(msg, url)
@@ -116,5 +113,5 @@ def run_discord_bot():
         if msg.content.startswith('!'):
             await msg.delete()
 
-    #client.login(TOKEN)
+    # client.login(TOKEN)
     client.run(TOKEN)
