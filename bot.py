@@ -127,7 +127,7 @@ def run_discord_bot():
         if msg.content.startswith('!help'):
             await msg.channel.send(help_message)
         if msg.content.startswith('!'):
-            #await msg.delete()
-            pass
+            await msg.delete()
+
 
     client.run(TOKEN)
