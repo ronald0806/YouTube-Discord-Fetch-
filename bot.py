@@ -27,8 +27,7 @@ download_message = """Preparing mp3 file. This may take up to a minute"""
 
 def run_discord_bot():
     # Discord bot Initialization
-    #TOKEN = sys.argv[1]
-    TOKEN = 'MTAyMDAxOTg0MTAwMTg0ODk2Mg.Gwjxmm.eWZu263hny25xyJkX5uUL4Ko8eVD2aLTZMO37g'
+    TOKEN = sys.argv[1]
     client = discord.Client(intents=discord.Intents.all())
     voice_clients = {}
     yt_dl_opts = {

@@ -17,13 +17,12 @@ def run(arg):
     filename = f"{filename}.mp3"
 
     print(f'filename1: {filename}')
-    options={
-
-        'format':'worstaudio',
-        'keepvideo':False,
-        'outtmpl':filename,
-        'ext':'mp3',
-        'audio-format' : 'mp3'
+    options = {
+        'format': 'worstaudio',
+        'keepvideo': False,
+        'outtmpl': filename,
+        'ext': 'mp3',
+        'audio-format': 'mp3'
     }
 
     with youtube_dl.YoutubeDL(options) as ydl:
