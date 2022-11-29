@@ -6,7 +6,10 @@ import youtube_dl
 import asyncio
 from requests import get
 import test
+import pprint
 import sys
+
+
 
 
 help_message = """!play url/search joins current voice channel and plays song
@@ -24,7 +27,8 @@ download_message = """Preparing mp3 file. This may take up to a minute"""
 
 def run_discord_bot():
     # Discord bot Initialization
-    TOKEN = sys.argv[1]
+    #TOKEN = sys.argv[1]
+    TOKEN = 'MTAyMDAxOTg0MTAwMTg0ODk2Mg.Gwjxmm.eWZu263hny25xyJkX5uUL4Ko8eVD2aLTZMO37g'
     client = discord.Client(intents=discord.Intents.all())
     voice_clients = {}
     yt_dl_opts = {
@@ -60,13 +64,23 @@ def run_discord_bot():
         voice_clients[voice_client.guild.id] = voice_client
 
         loop = asyncio.get_event_loop()
-        data = await search(url)
+        if is_url(url):
+            data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url, download=False))
+            song = data['url']
+            title = data['title']
+            print(f'song: {song}')
+            player = discord.FFmpegPCMAudio(song, **ffmpeg_options, executable="C://ffmpeg//ffmpeg.exe")
 
-        song = data['url']
-        title = data['title']
-        player = discord.FFmpegPCMAudio(song, **ffmpeg_options, executable="C://ffmpeg//ffmpeg.exe")
+            voice_client.play(player)
+        else:
+            printer = pprint.PrettyPrinter()
 
-        voice_client.play(player)
+            data = await loop.run_in_executor(None, lambda: ytdl.extract_info(f"ytsearch:{url}", download=False))
+            printer.pprint(data['entries'][0]['url'])
+            song = data['entries'][0]['url']
+            player = discord.FFmpegPCMAudio(song, **ffmpeg_options, executable="C://ffmpeg//ffmpeg.exe")
+
+            voice_client.play(player)
         return data
     @client.event
     async def on_ready():
@@ -82,19 +96,19 @@ def run_discord_bot():
                 data = await play_song(msg, url)
                 await msg.channel.send(f"Now playing {data['title']}")
             except Exception as err:
-                print(err)
+                print(f'error: {err}')
         if msg.content.startswith("!pause"):
             try:
                 voice_clients[msg.guild.id].pause()
             except Exception as err:
-                print(err)
+                print(f'error: {err}')
 
         # This resumes the current song playing if it's been paused
         if msg.content.startswith("!resume"):
             try:
                 voice_clients[msg.guild.id].resume()
             except Exception as err:
-                print(err)
+                print(f'error: {err}')
 
         # This stops the current playing song
         if msg.content.startswith("!stop"):
@@ -108,13 +122,13 @@ def run_discord_bot():
             url = msg.content.split()[1]
 
             await msg.channel.send(download_message)
-            filepath = await test.run(msg.content[10:])
+            filepath = test.run(msg.content[10:])
             await msg.channel.send(file=discord.File(filepath))
             os.remove(filepath)
         if msg.content.startswith('!help'):
             await msg.channel.send(help_message)
         if msg.content.startswith('!'):
-            await msg.delete()
+            #await msg.delete()
+            pass
 
-    #client.login(TOKEN)
     client.run(TOKEN)
