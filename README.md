@@ -8,10 +8,6 @@ The main language we will be initially implementing is Python. We will be using 
 
 download ffmpeg - https://www.gyan.dev/ffmpeg/builds/
 
-**ffmpeg-git-full.7z**
-
-copy the bin folder to C:\
-
 rename to **ffmpeg**
 
 install **requirements.txt**
