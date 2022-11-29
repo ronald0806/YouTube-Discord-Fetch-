@@ -129,5 +129,4 @@ def run_discord_bot():
         if msg.content.startswith('!'):
             await msg.delete()
 
-
     client.run(TOKEN)
