@@ -5,26 +5,27 @@ We will be creating a Discord bot that takes YouTube song titles and or URL and 
 The main language we will be initially implementing is Python. We will be using youtube_dl to import Youtube webm.  
 
 # How to set up a discord bot in your own server:
-follow this guide to begin:
+1. follow these guides to begin:
 
-[Create your bot](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
+    - [Create your bot](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
 
-[add your bot to a server](https://discordjs.guide/preparations/adding-your-bot-to-servers.html)
+    - [add your bot to a server](https://discordjs.guide/preparations/adding-your-bot-to-servers.html)
 
-then, [download ffmpeg](https://www.gyan.dev/ffmpeg/builds/)
+2. install [ffmpeg](https://www.gyan.dev/ffmpeg/builds/)
 
-extract **ffmpeg-git-full.7z**
+    - extract **ffmpeg-git-full.7z**
 
-copy the bin folder to C:\ & rename to **ffmpeg**
+   - copy the bin folder to C:\ 
+   - rename **bin** to **ffmpeg**
 
 alternatively, add ffmpeg to PATH variables
 
-install **requirements.txt**
+3. install **requirements.txt** `pip install -r requirements.txt`
 
-`pip install -r requirements.txt`
 
-finally run the bot using
 
-`py main.py 'example_token'`
+4. run the bot using `py main.py 'example_token'`
+
+
 
  ![screenshot](BotVisual.png)

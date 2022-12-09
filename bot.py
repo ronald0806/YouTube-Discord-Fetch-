@@ -126,7 +126,7 @@ def run_discord_bot():
             await msg.channel.send(file=discord.File(filepath))
             os.remove(filepath)
         if msg.content.startswith('!help'):
-            await msg.channel.send(help_message)
+            await msg.channel.send(embed=discord.Embed(title='YouTube-Discord-Fetch', url='https://github.com/ronaldchatelier/YouTube-Discord-Fetch-', description=help_message))
         if msg.content.startswith('!'):
             await msg.delete()
 
