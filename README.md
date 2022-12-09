@@ -9,7 +9,6 @@ follow this guide to begin:
 
 [Create your bot](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
 
-<<<<<<< HEAD
 [add your bot to a server](https://discordjs.guide/preparations/adding-your-bot-to-servers.html)
 
 then, [download ffmpeg](https://www.gyan.dev/ffmpeg/builds/)
