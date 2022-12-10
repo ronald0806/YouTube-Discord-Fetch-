@@ -31,10 +31,15 @@ This discord bot can be requested and added into any server. By using the proper
 
 # Command List:
 !play (url/search joins current voice channel and plays song)
+
 !download (url/search - generates a link to download mp3 from)
+
 !pause
+
 !resume
+
 !stop
+
 !help
 
  ![screenshot](BotVisual.png)
