@@ -26,9 +26,15 @@ alternatively, add ffmpeg to PATH variables
 
 4. run the bot using `py main.py 'example_token'`
 
-# How to add our Youtube Bot to any Server: 
-This discord bot can be requested into any server. 
+# How to add and use Youtube Bot into any Server: 
+This discord bot can be requested and added into any server. By using the proper commands with the ! first, anyone in the server can play any song on Youtube. 
 
-
+# Command List:
+!play (url/search joins current voice channel and plays song)
+!download (url/search - generates a link to download mp3 from)
+!pause
+!resume
+!stop
+!help
 
  ![screenshot](BotVisual.png)
