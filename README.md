@@ -26,7 +26,7 @@ alternatively, add ffmpeg to PATH variables
 
 4. run the bot using `py main.py 'example_token'`
 
-#How to add our Youtube Bot to any Server: 
+# How to add our Youtube Bot to any Server: 
 This discord bot can be manually added to any Server that the user requests. 
 
 
