@@ -4,7 +4,7 @@ We will be creating a Discord bot that takes YouTube song titles and or URL and 
 
 The main language we will be initially implementing is Python. We will be using youtube_dl to import Youtube webm.  
 
-# How to set up a discord bot in your own server:
+# How we set up Youtube Bot:
 1. follow these guides to begin:
 
     - [Create your bot](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
